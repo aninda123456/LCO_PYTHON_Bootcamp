@@ -42,8 +42,8 @@ def sendErrorMsg(msg,uid):
     url = URL+AUTH+"/sendMessage?text="+text+"&chat_id="+str(uid)
     requests.get(url)
 def sendEmail(uid,msg):
-    sender="hackerboui47@gmail.com"
-    password="opm161.cm"
+    sender="abcd@def.com" #Put the sender email here
+    password="xxxxxxxxxxx" #Put the sender passoword here
     sub="Telegram Message"
     portNo = "587"
     if("email" not in userSettings[uid]):
