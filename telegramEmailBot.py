@@ -41,7 +41,7 @@ def sendErrorMsg(msg,uid):
     url = URL+AUTH+"/sendMessage?text="+text+"&chat_id="+str(uid)
     requests.get(url)
 def sendEmail(uid,msg,imageContent):
-    sender="hackerboui47@gmail.com"
+    sender="telegrambot716@gmail.com"
     password="opm161.cm"
     sub="Telegram Message"
     portNo = "587"
@@ -92,7 +92,6 @@ def onePassScan(offset=None):
         else:
             addUser(jsonDict["result"][0]["message"]["from"]["id"],jsonDict["result"][0]["message"]["from"]["first_name"])
     else:
-        print("ping")
         emailREGX = re.compile(r"/Email[\s]*-[\s]*([\w\._+-]+@[\w\._+-]+.com)")
         if("text" in jsonDict["result"][0]["message"]):
             if(emailREGX.search(jsonDict["result"][0]["message"]["text"])!=None):
@@ -106,7 +105,6 @@ def onePassScan(offset=None):
             filePath = extractFilePath(file_id)
             if("caption" in jsonDict["result"][0]["message"]):
                 msg=msg+jsonDict["result"][0]["message"]["caption"]
-            print(filePath)
             imageContent = requests.get(filePath,stream=True).content
         sendEmail(jsonDict["result"][0]["message"]["from"]["id"],msg+"\nMessage was sent by: "+retName(jsonDict["result"][0]["message"]["from"]["id"]),imageContent)
     return offset
